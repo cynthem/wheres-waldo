@@ -9,3 +9,20 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.App {
+  display: grid;
+  grid-template-rows: 80px auto;
+}
+
+/* HEADER */
+
+.header {
+  background-color: white;
+}
+
+/* GAME */
+
+.game {
+  color: white;
+}
