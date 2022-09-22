@@ -9,9 +9,11 @@ const Header = () => {
         <div className='header'>
             <div className='header-container'>
                 <div className='header-characters'>
-                    <img src={waldo} alt="Waldo" />
-                    <img src={odlaw} alt="Odlaw" />
-                    <img src={whitebeard} alt="Whitebeard" />
+                    <div className='char-container'>
+                        <img src={waldo} alt="Waldo" />
+                        <img src={odlaw} alt="Odlaw" />
+                        <img src={whitebeard} alt="Whitebeard" />
+                    </div>
                     <div className='header-timer'>00m:00s</div>
                 </div>
                 <img className='header-title' src={title} alt="Where's Waldo?" />

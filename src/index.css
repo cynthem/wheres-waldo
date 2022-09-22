@@ -3,13 +3,13 @@
   font-family: 'Acme';
   font-style: normal;
   font-weight: 400;
-  src: url('./src/assets/acme-font/acme-v18-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('./assets/acme-font/acme-v18-latin-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('./src/assets/acme-font/acme-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./src/assets/acme-font/acme-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./src/assets/acme-font/acme-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('./src/assets/acme-font/acme-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('./src/assets/acme-font/acme-v18-latin-regular.svg#Acme') format('svg'); /* Legacy iOS */
+       url('./assets/acme-font/acme-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/acme-font/acme-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/acme-font/acme-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./assets/acme-font/acme-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/acme-font/acme-v18-latin-regular.svg#Acme') format('svg'); /* Legacy iOS */
 }
 
 body {
@@ -18,23 +18,26 @@ body {
   box-sizing: border-box;
   cursor: default;
   overscroll-behavior-y: none;
-  background-image: url('./assets/background.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  overscroll-behavior-x: none;
+  background-color: black;
   font-family: 'Acme', sans-serif;
 }
 
 .App {
-  height: 100vh;
+  /*height: 931px;*/
+  min-height: 100vh;
   display: grid;
-  grid-template-rows: 80px auto;
+  grid-template-rows: 100px auto;
+  background-image: url('./assets/wheresWaldo.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 20px;
 }
 
 /* HEADER */
 
 .header {
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,9 +54,16 @@ body {
 .header-characters {
   display: flex;
   align-items: center;
+  padding-bottom: 20px;
 }
 
-.header-characters > img {
+.char-container {
+  background-color: white;
+  padding-top: 4px;
+  border-radius: 8px;
+}
+
+.char-container > img {
   width: 50px;
   margin-right: 10px;
 }
@@ -64,15 +74,24 @@ body {
 }
 
 .header-title {
-  width: 150px;
+  width: 180px;
 }
 
 .header-leaderboard {
-
+  font-family: 'Acme', sans-serif;
+  font-size: 1.3rem;
+  margin-right: 10px;
+  background-color: #ea2b1a;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px 18px 8px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 /* GAME */
 
 .game {
-  background-image: url('./assets/wheresWaldo.jpg');
+  
 }
