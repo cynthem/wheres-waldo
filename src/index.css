@@ -20,6 +20,40 @@ body {
 
 .header {
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(50% + 85px);
+}
+
+.header-characters {
+  display: flex;
+  align-items: center;
+}
+
+.header-characters > img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.header-timer {
+  margin-left: 60px;
+  font-size: 1.5rem;
+}
+
+.header-title {
+  width: 150px;
+}
+
+.header-leaderboard {
+  
 }
 
 /* GAME */
