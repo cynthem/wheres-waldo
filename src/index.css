@@ -5,4 +5,7 @@ body {
   cursor: default;
   overscroll-behavior-y: none;
   background-image: url('./assets/background.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
