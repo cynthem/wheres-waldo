@@ -98,8 +98,18 @@ body {
   border-radius: 8px;
   margin-bottom: 20px;
   box-shadow: -3px 4px 3px rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 
 /* GAME */
 
+.game {
+  cursor: url('./assets/cursor.svg') 50 50, auto;
+}
+
+.game-pre {
+  height: 100%;
+  backdrop-filter: blur(5px);
+  cursor: default;
+}
