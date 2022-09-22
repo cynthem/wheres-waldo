@@ -24,15 +24,15 @@ body {
 }
 
 .App {
-  /*height: 931px;*/
-  min-height: 100vh;
+  min-height: 931px;
+  min-width: 1440px;
   display: grid;
   grid-template-rows: 100px auto;
   background-image: url('./assets/wheresWaldo.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-  margin-bottom: 20px;
+  background-size: cover;
+  position: relative;
 }
 
 /* HEADER */
@@ -55,10 +55,13 @@ body {
   display: flex;
   align-items: center;
   padding-bottom: 20px;
+  position: fixed;
+  z-index: 2;
 }
 
 .char-container {
   background-color: white;
+  box-shadow: -3px 4px 3px rgb(0, 0, 0, 0.7);
   padding-top: 4px;
   border-radius: 8px;
 }
@@ -71,10 +74,16 @@ body {
 .header-timer {
   margin-left: 60px;
   font-size: 1.5rem;
+  background-color: #38c5f9;
+  box-shadow: -3px 4px 3px rgb(0, 0, 0, 0.7);
+  padding: 10px 18px 8px;
+  border-radius: 8px;
 }
 
 .header-title {
   width: 180px;
+  position: absolute;
+  left: calc(50vw - 90px);
 }
 
 .header-leaderboard {
@@ -88,10 +97,9 @@ body {
   padding: 10px 18px 8px;
   border-radius: 8px;
   margin-bottom: 20px;
+  box-shadow: -3px 4px 3px rgb(0, 0, 0);
 }
+
 
 /* GAME */
 
-.game {
-  
-}
