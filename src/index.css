@@ -101,6 +101,10 @@ body {
   cursor: pointer;
 }
 
+.header-leaderboard:active {
+  box-shadow: inset 3px 4px 4px rgb(0, 0, 0, 0.5);
+}
+
 
 /* GAME */
 
@@ -124,7 +128,7 @@ h2 {
 }
 
 .start-btn {
-  width: 100px;
+  width: 180px;
   font-family: 'Acme', sans-serif;
   font-size: 1.5rem;
   background-color: #ea2b1a;
@@ -135,4 +139,8 @@ h2 {
   border-radius: 8px;
   box-shadow: -3px 4px 3px rgb(0, 0, 0);
   cursor: pointer;
+}
+
+.start-btn:active {
+  box-shadow: inset 3px 4px 4px rgb(0, 0, 0, 0.5);
 }
