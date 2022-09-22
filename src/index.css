@@ -1,3 +1,8 @@
 body {
+  min-height: 100vh;
   margin: 0;
+  box-sizing: border-box;
+  cursor: default;
+  overscroll-behavior-y: none;
+  background-image: url('./assets/background.jpeg');
 }
