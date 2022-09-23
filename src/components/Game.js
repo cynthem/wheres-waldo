@@ -1,9 +1,12 @@
 import React from 'react';
+import FoundBox from './FoundBox';
 
-const Game = ({ handleCharFound, handleStopGame }) => {
+const Game = ({ handleCharFound, handleStopGame, clicked, handleClicked }) => {
     return (
-        <div className='game'>
-
+        <div className='game' onClick={() => handleClicked()}>
+            {clicked &&
+                <FoundBox />
+            }
         </div>
     )
 }

@@ -10,6 +10,7 @@ function App() {
   const [timerStarted, setTimerStarted] = useState(false);
   const [time, setTime] = useState(null);
   const [characters, setCharacters] = useState(charList);
+  const [clicked, setClicked] = useState(false);
   const [leaderOpen, setLeaderOpen] = useState(false);
   const timerRef = useRef(null);
 
@@ -24,6 +25,10 @@ function App() {
   const handleStopGame = () => {
     setTimerStarted(false);
     clearInterval(timerRef.current);
+  }
+
+  const handleClicked = () => {
+    setClicked(!clicked);
   }
 
   const handleCharFound = (id) => {
@@ -56,6 +61,8 @@ function App() {
         <Game 
           handleCharFound={handleCharFound}
           handleStopGame={handleStopGame}
+          clicked={clicked}
+          handleClicked={handleClicked}
         />
       }
       {leaderOpen &&
