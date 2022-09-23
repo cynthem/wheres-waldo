@@ -1,18 +1,15 @@
 import React from 'react';
 import title from '../assets/title.png';
-import waldo from '../assets/waldo.png';
-import odlaw from '../assets/odlaw.png';
-import whitebeard from '../assets/whitebeard.png';
 
-const Header = () => {
+const Header = ({ characters }) => {
     return (
         <div className='header'>
             <div className='header-container'>
                 <div className='header-characters'>
                     <div className='char-container'>
-                        <img src={waldo} alt="Waldo" />
-                        <img src={odlaw} alt="Odlaw" />
-                        <img src={whitebeard} alt="Whitebeard" />
+                        <img src={characters[0].src} alt="Waldo" />
+                        <img src={characters[1].src} alt="Odlaw" />
+                        <img src={characters[2].src} alt="Whitebeard" />
                     </div>
                     <div className='header-timer'>00m:00s</div>
                 </div>
