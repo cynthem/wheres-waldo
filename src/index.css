@@ -106,13 +106,9 @@ body {
 }
 
 
-/* GAME */
+/* PRE-GAME */
 
-.game {
-  cursor: url('./assets/cursor.svg') 50 50, auto;
-}
-
-.game-pre {
+.pre-game {
   height: 100%;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.6);
@@ -143,4 +139,11 @@ h2 {
 
 .start-btn:active {
   box-shadow: inset 3px 4px 4px rgb(0, 0, 0, 0.5);
+}
+
+
+/* GAME */
+
+.game {
+  cursor: url('./assets/cursor.svg') 50 50, auto;
 }
