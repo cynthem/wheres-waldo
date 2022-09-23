@@ -17,6 +17,7 @@ const Leaderboard = ({ handleOpenLeader }) => {
                     <p>TIME</p>
                     <p>DATE</p>
                 </div>
+                <div className='leaderboard-results'>RESULTS</div>
             </div>
         </div>
     )

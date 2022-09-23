@@ -56,7 +56,7 @@ body {
   align-items: center;
   padding-bottom: 20px;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
 }
 
 .char-container {
@@ -152,5 +152,42 @@ h2 {
 /* LEADERBOARD */
 
 .leaderboard {
-  
+  position: absolute;
+  z-index: 2;
+  top: 150px;
+  left: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.leaderboard-title {
+  margin: 0;
+  background-color: #ea2b1a;
+  width: 200px;
+  text-align: center;
+}
+
+.leaderboard-container {
+  background-color: #ea2b1a;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.leaderboard-close {
+  align-self: flex-end;
+}
+
+.leaderboard-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 80px 0 20px;
+}
+
+.leaderboard-results {
+  height: 400px;
+  overflow-x: scroll;
 }
