@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
+import PreGame from './components/PreGame';
 import Game from './components/Game';
 
 function App() {
@@ -12,7 +13,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Game />
+      {!isStarted &&
+        <PreGame handleStart={handleStart} />
+      }
+      {isStarted &&
+        <Game />
+      }
     </div>
   );
 }
