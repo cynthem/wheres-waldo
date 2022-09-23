@@ -8,9 +8,18 @@ const Header = ({ characters, gameStarted, timerStarted, time }) => {
             <div className='header-container'>
                 <div className='header-characters'>
                     <div className='char-container'>
-                        <img src={characters[0].src} alt="Waldo" />
-                        <img src={characters[1].src} alt="Odlaw" />
-                        <img src={characters[2].src} alt="Whitebeard" />
+                        <img 
+                            src={!characters[0].found ? characters[0].unfoundSrc : characters[0].foundSrc} 
+                            alt="Waldo"
+                        />
+                        <img 
+                            src={!characters[1].found ? characters[1].unfoundSrc : characters[1].foundSrc} 
+                            alt="Odlaw"
+                        />
+                        <img 
+                            src={!characters[2].found ? characters[2].unfoundSrc : characters[2].foundSrc} 
+                            alt="Whitebeard"
+                        />
                     </div>
                     {!gameStarted &&
                         <div className='header-timer'>00m:00s</div>
