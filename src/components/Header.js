@@ -2,7 +2,7 @@ import React from 'react';
 import Timer from './Timer';
 import title from '../assets/title.png';
 
-const Header = ({ characters, gameStarted, timerStarted, time }) => {
+const Header = ({ characters, gameStarted, timerStarted, time, handleOpenLeader }) => {
     return (
         <div className='header'>
             <div className='header-container'>
@@ -33,7 +33,12 @@ const Header = ({ characters, gameStarted, timerStarted, time }) => {
                 </div>
                 <img className='header-title' src={title} alt="Where's Waldo?" />
             </div>
-            <button className='header-leaderboard'>Leaderboard</button>
+            <button 
+                className='header-leaderboard'
+                onClick={() => handleOpenLeader}
+            >
+                Leaderboard
+            </button>
         </div>
     )
 }

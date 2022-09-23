@@ -9,6 +9,7 @@ function App() {
   const [timerStarted, setTimerStarted] = useState(false);
   const [time, setTime] = useState(null);
   const [characters, setCharacters] = useState(charList);
+  const [leaderOpen, setLeaderOpen] = useState(false);
   const timerRef = useRef(null);
 
   const handleStartGame = () => {
@@ -34,14 +35,19 @@ function App() {
     setCharacters(updatedList);
   }
   
+  const handleOpenLeader = () => {
+    setLeaderOpen(true);
+  }
 
   return (
     <div className="App">
       <Header 
-        characters={characters}
         gameStarted={gameStarted}
         timerStarted={timerStarted}
         time={time}
+        characters={characters}
+        leaderOpen={leaderOpen}
+        handleOpenLeader={handleOpenLeader}
       />
       {!gameStarted &&
         <PreGame handleStartGame={handleStartGame} />
