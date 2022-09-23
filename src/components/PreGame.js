@@ -1,12 +1,12 @@
 import React from 'react';
 
-const PreGame = ({ handleStart }) => {
+const PreGame = ({ handleStartGame }) => {
     return (
         <div className='pre-game'>
             <h2>Find Waldo, Odlaw, and Whitebeard in the shortest amount of time!</h2>
             <button 
                 className='start-btn'
-                onClick={() => handleStart()}
+                onClick={() => handleStartGame()}
             >
                 Begin Game
             </button>
