@@ -1,42 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import PreGame from './components/PreGame';
 import Game from './components/Game';
 import charList from './helpers/charList';
 
 function App() {
+  const [gameStarted, setGameStarted] = useState(false);
+  const [timerStarted, setTimerStarted] = useState(false);
+  const [time, setTime] = useState(null);
   const [characters, setCharacters] = useState(charList);
-  const [isStarted, setIsStarted] = useState(false);
-  const [timerOn, setTimerOn] = useState(false);
-  const [time, setTime] = useState(0);
+  const timerRef = useRef(null);
 
-  const handleStart = () => {
-    setIsStarted(true);
-    //setTimerOn(true);
+  const handleStartGame = () => {
+    setGameStarted(true);
+    setTimerStarted(true);
+    timerRef.current = setInterval(() => {
+      setTime(time => time + 1)
+    }, 1000);
   }
 
-  const handleFoundChar = (id) => {
-    const foundChar = characters.map((char) => {
-      if (char.id === id) {
-        char.found = true;
-      }
-      return characters;
-    });
-    setCharacters({ characters: foundChar });
+  const handleStopGame = () => {
+    setTimerStarted(false);
+    clearInterval(timerRef.current);
   }
+  
 
   return (
     <div className="App">
       <Header 
         characters={characters}
-        handleStart={handleStart}
-        handleFoundChar={handleFoundChar}
-        timerOn={timerOn}
+        gameStarted={gameStarted}
+        timerStarted={timerStarted}
+        time={time}
       />
-      {!isStarted &&
-        <PreGame handleStart={handleStart} />
+      {!gameStarted &&
+        <PreGame handleStartGame={handleStartGame} />
       }
-      {isStarted &&
+      {gameStarted &&
         <Game />
       }
     </div>
