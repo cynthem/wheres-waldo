@@ -37,7 +37,11 @@ function App() {
   }
   
   const handleOpenLeader = () => {
-    setLeaderOpen(!leaderOpen);
+    if (leaderOpen) {
+      setLeaderOpen(false);
+    } else {
+      setLeaderOpen(true);
+    }
   }
 
   return (

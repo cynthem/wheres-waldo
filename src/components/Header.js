@@ -35,7 +35,7 @@ const Header = ({ characters, gameStarted, timerStarted, time, handleOpenLeader 
             </div>
             <button 
                 className='header-leaderboard'
-                onClick={() => handleOpenLeader}
+                onClick={() => handleOpenLeader()}
             >
                 Leaderboard
             </button>
