@@ -5,6 +5,9 @@ import Game from './components/Game';
 
 function App() {
   const [isStarted, setIsStarted] = useState(false);
+  const [timerOn, setTimerOn] = useState(false);
+  const [time, setTime] = useState(0);
+  const [checkedChar, setCheckedChar] = useState(null);
 
   const handleStart = () => {
     setIsStarted(true);
