@@ -13,7 +13,6 @@
 }
 
 body {
-  min-height: 100vh;
   margin: 0;
   box-sizing: border-box;
   cursor: default;
@@ -24,8 +23,8 @@ body {
 }
 
 .App {
-  min-height: 931px;
-  min-width: 1440px;
+  height: 931px;
+  width: 1440px;
   display: grid;
   grid-template-rows: 100px auto;
   background-image: url('./assets/wheresWaldo.jpg');

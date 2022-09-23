@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Game = () => {
+const Game = ({ handleCharFound, handleStopGame }) => {
     return (
         <div className='game'>
 
