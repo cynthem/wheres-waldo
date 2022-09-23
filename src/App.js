@@ -46,7 +46,6 @@ function App() {
         timerStarted={timerStarted}
         time={time}
         characters={characters}
-        leaderOpen={leaderOpen}
         handleOpenLeader={handleOpenLeader}
       />
       {!gameStarted &&
@@ -57,6 +56,9 @@ function App() {
           handleCharFound={handleCharFound}
           handleStopGame={handleStopGame}
         />
+      }
+      {leaderOpen &&
+        <Leaderboard />
       }
     </div>
   );
