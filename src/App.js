@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import PreGame from './components/PreGame';
 import Game from './components/Game';
+import Leaderboard from './components/Leaderboard';
 import charList from './helpers/charList';
 
 function App() {
