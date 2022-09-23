@@ -37,7 +37,7 @@ function App() {
   }
   
   const handleOpenLeader = () => {
-    setLeaderOpen(true);
+    setLeaderOpen(!leaderOpen);
   }
 
   return (
@@ -59,7 +59,7 @@ function App() {
         />
       }
       {leaderOpen &&
-        <Leaderboard />
+        <Leaderboard handleOpenLeader={handleOpenLeader} />
       }
     </div>
   );

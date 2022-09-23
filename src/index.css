@@ -34,6 +34,7 @@ body {
   position: relative;
 }
 
+
 /* HEADER */
 
 .header {
@@ -145,4 +146,11 @@ h2 {
 
 .game {
   cursor: url('./assets/cursor.svg') 50 50, auto;
+}
+
+
+/* LEADERBOARD */
+
+.leaderboard {
+  
 }
