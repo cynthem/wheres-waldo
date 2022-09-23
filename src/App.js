@@ -23,6 +23,16 @@ function App() {
     setTimerStarted(false);
     clearInterval(timerRef.current);
   }
+
+  const handleCharFound = (id) => {
+    const updatedList = characters((char) => {
+      if (characters.id === id) {
+        characters.found = true;
+      }
+      return characters;
+    });
+    setCharacters(updatedList);
+  }
   
 
   return (
@@ -37,7 +47,10 @@ function App() {
         <PreGame handleStartGame={handleStartGame} />
       }
       {gameStarted &&
-        <Game />
+        <Game 
+          handleCharFound={handleCharFound}
+          handleStopGame={handleStopGame}
+        />
       }
     </div>
   );
