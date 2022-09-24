@@ -1,8 +1,13 @@
 import React from 'react';
 
-const FoundBox = () => {
+const FoundBox = ({ coords }) => {
+    const style = {
+        left: coords.x,
+        top: coords.y
+    }
+
     return (
-        <div className='foundbox'>
+        <div className='foundbox' style={style}>
             <p>Waldo</p>
             <p>Odlaw</p>
             <p>Whitebeard</p>

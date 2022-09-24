@@ -35,6 +35,12 @@ body {
   position: absolute;
 }
 
+#waldo,
+#odlaw,
+#whitebeard {
+  cursor: url('./assets/cursor.svg') 50 50, auto;
+}
+
 
 /* HEADER */
 

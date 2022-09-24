@@ -39,17 +39,10 @@ function App() {
 
   const handleClicked = (e) => {
     setClicked(!clicked);
-    const xCoord = e.clientX;
-    const yCoord = e.clientY;
+    const xCoord = e.clientX + 50;
+    const yCoord = e.clientY - 100;
     setCoords({ x: xCoord, y: yCoord });
-    handleCoords(coords);
   }
-
-  const handleCoords = (coords) => {
-    const foundbox = document.querySelector('./foundbox');
-    foundbox.style.left = coords.x - 50 + "px";
-    foundbox.style.top = coords.y - 50 + "px";
-}
 
   const handleCharFound = (id) => {
     const updatedList = characters((char) => {
@@ -108,7 +101,7 @@ function App() {
         />
       </map>
       {clicked &&
-        <FoundBox />
+        <FoundBox coords={coords} />
       }
     </div>
   );
