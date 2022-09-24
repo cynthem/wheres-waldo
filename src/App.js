@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import PreGame from './components/PreGame';
-import Game from './components/Game';
 import Leaderboard from './components/Leaderboard';
 import charList from './helpers/charList';
 import gameImage from './assets/wheresWaldo.jpg';
+import cursor from './assets/cursor.svg';
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -18,9 +18,13 @@ function App() {
   const handleStartGame = () => {
     setGameStarted(true);
     setTimerStarted(true);
+
     timerRef.current = setInterval(() => {
       setTime(time => time + 1)
     }, 1000);
+
+    const gameImage = document.querySelector('.game-image');
+    gameImage.style.cursor = `url(${cursor}) 50 50, auto`;
   }
 
   const handleStopGame = () => {
@@ -62,14 +66,6 @@ function App() {
       }
       {!gameStarted &&
         <PreGame handleStartGame={handleStartGame} />
-      }
-      {gameStarted &&
-        <Game 
-          handleCharFound={handleCharFound}
-          handleStopGame={handleStopGame}
-          clicked={clicked}
-          handleClicked={handleClicked}
-        />
       }
       <img 
         className="game-image"
