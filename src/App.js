@@ -28,8 +28,10 @@ function App() {
     clearInterval(timerRef.current);
   }
 
-  const handleClicked = () => {
+  const handleClicked = (e) => {
     setClicked(!clicked);
+    const xCoord = e.clientX;
+    console.log(xCoord);
   }
 
   const handleCharFound = (id) => {
@@ -55,6 +57,9 @@ function App() {
         characters={characters}
         handleOpenLeader={handleOpenLeader}
       />
+      {leaderOpen &&
+        <Leaderboard handleOpenLeader={handleOpenLeader} />
+      }
       {!gameStarted &&
         <PreGame handleStartGame={handleStartGame} />
       }
@@ -66,14 +71,12 @@ function App() {
           handleClicked={handleClicked}
         />
       }
-      {leaderOpen &&
-        <Leaderboard handleOpenLeader={handleOpenLeader} />
-      }
       <img 
         className="game-image"
         src={gameImage}
         alt="Where's Waldo"
         useMap="#game-map"
+        onClick={(e) => handleClicked(e)}
       />
       <map name="game-map">
         <area 
