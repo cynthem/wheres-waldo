@@ -158,9 +158,20 @@ h2 {
   z-index: 2;
   position: absolute;
   width: 100px;
-  height: 100px;
+  height: 126px;
   background-color: black;
   color: white;
+  border-radius: 10px;
+  box-shadow: -3px 4px 3px rgb(0, 0, 0, 0.5);
+}
+
+.foundbox > p {
+  cursor: pointer;
+  text-align: center;
+}
+
+.foundbox > p:hover {
+  color: #38c5f9;
 }
 
 
