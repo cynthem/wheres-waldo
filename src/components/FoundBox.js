@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FoundBox = ({ coords, finding, handleFinding }) => {
+const FoundBox = ({ coords, handleFinding }) => {
     const style = {
         left: coords.x,
         top: coords.y

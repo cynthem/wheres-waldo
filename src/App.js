@@ -11,36 +11,21 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
   const [time, setTime] = useState(null);
-  const [characters, setCharacters] = useState(charList);
   const [clicked, setClicked] = useState(false);
   const [coords, setCoords] = useState({ x: null, y: null });
   const [finding, setFinding] = useState(null);
   const [leaderOpen, setLeaderOpen] = useState(false);
-  const [waldoSrc, setWaldoSrc] = useState(characters[0].unfoundSrc);
-  const [odlawSrc, setOdlawSrc] = useState(characters[1].unfoundSrc);
-  const [whiteSrc, setWhiteSrc] = useState(characters[2].unfoundSrc);
+  const [waldoSrc, setWaldoSrc] = useState(charList[0].unfoundSrc);
+  const [odlawSrc, setOdlawSrc] = useState(charList[1].unfoundSrc);
+  const [whiteSrc, setWhiteSrc] = useState(charList[2].unfoundSrc);
   const timerRef = useRef(null);
-
-  useEffect(() => {
-    if (characters[0].found) {
-        setWaldoSrc(characters[0].foundSrc)
-    }
-    if (characters[1].found) {
-        setOdlawSrc(characters[1].foundSrc)
-    }
-    if (characters[2].found) {
-        setWhiteSrc(characters[2].foundSrc)
-    }
-  }, [characters]);
 
   const handleStartGame = () => {
     setGameStarted(true);
     setTimerStarted(true);
-
     timerRef.current = setInterval(() => {
       setTime(time => time + 1)
     }, 1000);
-
     const gameImage = document.querySelector('.game-image');
     gameImage.style.cursor = `url(${cursor}) 50 50, auto`;
   }
@@ -62,8 +47,11 @@ function App() {
 
   const handleFinding = (e) => {
     if (e.target.className.includes('waldo') && finding === 'waldo') {
-      setCharacters(characters[0].found = true);
-      console.log('success')
+      setWaldoSrc(charList[0].foundSrc)
+    } else if (e.target.className.includes('odlaw') && finding === 'odlaw') {
+      setOdlawSrc(charList[1].foundSrc)
+    } else if (e.target.className.includes('whitebeard') && finding === 'whitebeard') {
+      setWhiteSrc(charList[2].foundSrc)
     }
   }
   
@@ -77,7 +65,6 @@ function App() {
         gameStarted={gameStarted}
         timerStarted={timerStarted}
         time={time}
-        characters={characters}
         handleOpenLeader={handleOpenLeader}
         waldoSrc={waldoSrc}
         odlawSrc={odlawSrc}
@@ -122,7 +109,6 @@ function App() {
       {clicked &&
         <FoundBox 
           coords={coords}
-          finding={finding}
           handleFinding={handleFinding}
         />
       }
