@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FoundBox = ({ coords }) => {
+const FoundBox = ({ coords, finding, handleFinding }) => {
     const style = {
         left: coords.x,
         top: coords.y
@@ -8,9 +8,24 @@ const FoundBox = ({ coords }) => {
 
     return (
         <div className='foundbox' style={style}>
-            <p>Waldo</p>
-            <p>Odlaw</p>
-            <p>Whitebeard</p>
+            <p 
+                className='waldo'
+                onClick={(e) => handleFinding(e)}
+            >
+                Waldo
+            </p>
+            <p 
+                className='odlaw'
+                onClick={(e) => handleFinding(e)}
+            >
+                Odlaw
+            </p>
+            <p 
+                className='whitebeard'
+                onClick={(e) => handleFinding(e)}
+            >
+                Whitebeard
+            </p>
         </div>
     )
 }

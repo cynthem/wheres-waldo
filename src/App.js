@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import PreGame from './components/PreGame';
 import Leaderboard from './components/Leaderboard';
@@ -14,8 +14,24 @@ function App() {
   const [characters, setCharacters] = useState(charList);
   const [clicked, setClicked] = useState(false);
   const [coords, setCoords] = useState({ x: null, y: null });
+  const [finding, setFinding] = useState(null);
   const [leaderOpen, setLeaderOpen] = useState(false);
+  const [waldoSrc, setWaldoSrc] = useState(characters[0].unfoundSrc);
+  const [odlawSrc, setOdlawSrc] = useState(characters[1].unfoundSrc);
+  const [whiteSrc, setWhiteSrc] = useState(characters[2].unfoundSrc);
   const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (characters[0].found) {
+        setWaldoSrc(characters[0].foundSrc)
+    }
+    if (characters[1].found) {
+        setOdlawSrc(characters[1].foundSrc)
+    }
+    if (characters[2].found) {
+        setWhiteSrc(characters[2].foundSrc)
+    }
+  }, [characters]);
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -32,7 +48,6 @@ function App() {
   const handleStopGame = () => {
     setTimerStarted(false);
     clearInterval(timerRef.current);
-
     const gameImage = document.querySelector('.game-image');
     gameImage.style.cursor = 'default';
   }
@@ -42,16 +57,14 @@ function App() {
     const xCoord = e.clientX + 50;
     const yCoord = e.clientY - 100;
     setCoords({ x: xCoord, y: yCoord });
+    setFinding(e.target.id);
   }
 
-  const handleCharFound = (id) => {
-    const updatedList = characters((char) => {
-      if (characters.id === id) {
-        characters.found = true;
-      }
-      return characters;
-    });
-    setCharacters(updatedList);
+  const handleFinding = (e) => {
+    if (e.target.className.includes('waldo') && finding === 'waldo') {
+      setCharacters(characters[0].found = true);
+      console.log('success')
+    }
   }
   
   const handleOpenLeader = () => {
@@ -66,6 +79,9 @@ function App() {
         time={time}
         characters={characters}
         handleOpenLeader={handleOpenLeader}
+        waldoSrc={waldoSrc}
+        odlawSrc={odlawSrc}
+        whiteSrc={whiteSrc}
       />
       {leaderOpen &&
         <Leaderboard handleOpenLeader={handleOpenLeader} />
@@ -86,22 +102,29 @@ function App() {
           alt="waldo"
           shape="rect"
           coords="570,566,590,605"
+          onClick={(e) => handleClicked(e)}
         />
         <area 
           id="odlaw"
           alt="odlaw"
           shape="rect"
           coords="90,630,115,660"
+          onClick={(e) => handleClicked(e)}
         />
         <area 
           id="whitebeard"
           alt="whitebeard"
           shape="rect"
           coords="1115,520,1135,560"
+          onClick={(e) => handleClicked(e)}
         />
       </map>
       {clicked &&
-        <FoundBox coords={coords} />
+        <FoundBox 
+          coords={coords}
+          finding={finding}
+          handleFinding={handleFinding}
+        />
       }
     </div>
   );
