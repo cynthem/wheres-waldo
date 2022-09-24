@@ -4,6 +4,7 @@ import PreGame from './components/PreGame';
 import Game from './components/Game';
 import Leaderboard from './components/Leaderboard';
 import charList from './helpers/charList';
+import gameImage from './assets/wheresWaldo.jpg';
 
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -68,6 +69,32 @@ function App() {
       {leaderOpen &&
         <Leaderboard handleOpenLeader={handleOpenLeader} />
       }
+      <img 
+        className="game-image"
+        src={gameImage}
+        alt="Where's Waldo"
+        useMap="#game-map"
+      />
+      <map name="game-map">
+        <area 
+          id="waldo"
+          alt="waldo"
+          shape="rect"
+          coords="570,566,590,605"
+        />
+        <area 
+          id="odlaw"
+          alt="odlaw"
+          shape="rect"
+          coords="90,630,115,660"
+        />
+        <area 
+          id="whitebeard"
+          alt="whitebeard"
+          shape="rect"
+          coords="1115,520,1135,560"
+        />
+      </map>
     </div>
   );
 }

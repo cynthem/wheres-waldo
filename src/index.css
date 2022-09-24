@@ -27,11 +27,12 @@ body {
   width: 1440px;
   display: grid;
   grid-template-rows: 100px auto;
-  background-image: url('./assets/wheresWaldo.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
+}
+
+.game-image {
+  z-index: 0;
+  position: absolute;
 }
 
 
@@ -82,8 +83,9 @@ body {
 
 .header-title {
   width: 180px;
-  position: absolute;
+  position: sticky;
   left: calc(50vw - 90px);
+  z-index: 1;
 }
 
 .header-leaderboard {
@@ -99,6 +101,7 @@ body {
   margin-bottom: 20px;
   box-shadow: -3px 4px 3px rgb(0, 0, 0);
   cursor: pointer;
+  z-index: 1;
 }
 
 .header-leaderboard:active {
