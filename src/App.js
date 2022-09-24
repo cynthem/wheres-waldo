@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import PreGame from './components/PreGame';
 import Leaderboard from './components/Leaderboard';
+import FoundBox from './components/FoundBox';
 import charList from './helpers/charList';
 import gameImage from './assets/wheresWaldo.jpg';
 import cursor from './assets/cursor.svg';
@@ -12,6 +13,7 @@ function App() {
   const [time, setTime] = useState(null);
   const [characters, setCharacters] = useState(charList);
   const [clicked, setClicked] = useState(false);
+  const [coords, setCoords] = useState({ x: null, y: null });
   const [leaderOpen, setLeaderOpen] = useState(false);
   const timerRef = useRef(null);
 
@@ -30,13 +32,24 @@ function App() {
   const handleStopGame = () => {
     setTimerStarted(false);
     clearInterval(timerRef.current);
+
+    const gameImage = document.querySelector('.game-image');
+    gameImage.style.cursor = 'default';
   }
 
   const handleClicked = (e) => {
     setClicked(!clicked);
     const xCoord = e.clientX;
-    console.log(xCoord);
+    const yCoord = e.clientY;
+    setCoords({ x: xCoord, y: yCoord });
+    handleCoords(coords);
   }
+
+  const handleCoords = (coords) => {
+    const foundbox = document.querySelector('./foundbox');
+    foundbox.style.left = coords.x - 50 + "px";
+    foundbox.style.top = coords.y - 50 + "px";
+}
 
   const handleCharFound = (id) => {
     const updatedList = characters((char) => {
@@ -94,6 +107,9 @@ function App() {
           coords="1115,520,1135,560"
         />
       </map>
+      {clicked &&
+        <FoundBox />
+      }
     </div>
   );
 }
