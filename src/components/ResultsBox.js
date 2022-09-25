@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ResultsBox = () => {
+const ResultsBox = ({ results }) => {
     return (
         <div className='resultsbox'>
-            <p className='text-top'>Nothing there.</p>
-            <p className='text-bottom'>Better luck next time!</p>
+            <p className='text-top'>{results.top}</p>
+            <p className='text-bottom'>{results.bottom}</p>
         </div>
     )
 }

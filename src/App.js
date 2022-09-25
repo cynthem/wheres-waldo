@@ -19,7 +19,7 @@ function App() {
   const [finding, setFinding] = useState(null);
   const [foundCount, setFoundCount] = useState(0);
   const [resultsOpen, setResultsOpen] = useState(false);
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState({ top: "", bottom: "" });
   const [waldoFound, setWaldoFound] = useState({
     src: charList[0].unfoundSrc,
     textDeco: 'none',
@@ -57,7 +57,8 @@ function App() {
   }
 
   const handleClicked = (e) => {
-    setClicked(true);
+    setClicked(!clicked);
+    setResultsOpen(false);
     const xCoord = e.clientX + 50;
     const yCoord = e.clientY - 100;
     setCoords({ x: xCoord, y: yCoord });
@@ -75,6 +76,11 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
+      setResults(prevresults => ({
+        ...prevresults,
+        top: "You found",
+        bottom: "Waldo!"
+      }));
       setResultsOpen(true);
       window.setTimeout(() => {setClicked(false)}, 1000);
       if (foundCount === 3) {
@@ -89,6 +95,12 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
+      setResults(prevresults => ({
+        ...prevresults,
+        top: "You found",
+        bottom: "Odlaw!"
+      }));
+      setResultsOpen(true);
       window.setTimeout(() => setClicked(false), 1000);
       if (foundCount === 3) {
         handleStopGame();
@@ -102,12 +114,23 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
+      setResults(prevresults => ({
+        ...prevresults,
+        top: "You found",
+        bottom: "Whitebeard!"
+      }));
+      setResultsOpen(true);
       window.setTimeout(() => setClicked(false), 1000);
       if (foundCount === 3) {
         handleStopGame();
       }
     } else {
-
+      setResults(prevresults => ({
+        ...prevresults,
+        top: "Nothing there.",
+        bottom: "Better luck next time!"
+      }));
+      setResultsOpen(true);
     }
   }
   
@@ -172,7 +195,7 @@ function App() {
         />
       }
       {resultsOpen &&
-        <ResultsBox />
+        <ResultsBox results={results} />
       }
     </div>
   );
