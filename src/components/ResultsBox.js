@@ -3,7 +3,7 @@ import React from 'react';
 const ResultsBox = () => {
     return (
         <div className='resultsbox'>
-            results
+            You found Whitebeard!
         </div>
     )
 }
