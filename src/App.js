@@ -54,7 +54,7 @@ function App() {
   }
 
   const handleClicked = (e) => {
-    setClicked(!clicked);
+    setClicked(true);
     const xCoord = e.clientX + 50;
     const yCoord = e.clientY - 100;
     setCoords({ x: xCoord, y: yCoord });
@@ -72,6 +72,7 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
+      window.setTimeout(setClicked(false), 1000);
       if (foundCount === 3) {
         handleStopGame();
       }
