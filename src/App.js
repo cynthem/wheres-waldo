@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from './components/Header';
 import PreGame from './components/PreGame';
 import Leaderboard from './components/Leaderboard';
@@ -14,10 +14,12 @@ function App() {
   const [clicked, setClicked] = useState(false);
   const [coords, setCoords] = useState({ x: null, y: null });
   const [finding, setFinding] = useState(null);
-  const [leaderOpen, setLeaderOpen] = useState(false);
+  const [foundCount, setFoundCount] = useState(0);
   const [waldoSrc, setWaldoSrc] = useState(charList[0].unfoundSrc);
   const [odlawSrc, setOdlawSrc] = useState(charList[1].unfoundSrc);
   const [whiteSrc, setWhiteSrc] = useState(charList[2].unfoundSrc);
+  const [charFound, setCharFound] = useState({ waldo: 'none', odlaw: 'none', white: 'none' });
+  const [leaderOpen, setLeaderOpen] = useState(false);
   const timerRef = useRef(null);
 
   const handleStartGame = () => {
@@ -47,11 +49,40 @@ function App() {
 
   const handleFinding = (e) => {
     if (e.target.className.includes('waldo') && finding === 'waldo') {
-      setWaldoSrc(charList[0].foundSrc)
+      setWaldoSrc(charList[0].foundSrc);
+      setFoundCount(foundCount + 1);
+      handleCharFound('waldo');
+      if (foundCount === 3) {
+        handleStopGame();
+      }
     } else if (e.target.className.includes('odlaw') && finding === 'odlaw') {
-      setOdlawSrc(charList[1].foundSrc)
+      setOdlawSrc(charList[1].foundSrc);
+      setFoundCount(foundCount + 1);
+      handleCharFound('odlaw');
+      if (foundCount === 3) {
+        handleStopGame();
+      }
     } else if (e.target.className.includes('whitebeard') && finding === 'whitebeard') {
-      setWhiteSrc(charList[2].foundSrc)
+      setWhiteSrc(charList[2].foundSrc);
+      setFoundCount(foundCount + 1);
+      handleCharFound('whitebeard');
+      if (foundCount === 3) {
+        handleStopGame();
+      }
+    } else {
+
+    }
+  }
+
+  const handleCharFound = (character) => {
+    if (character === 'waldo') {
+      setCharFound(charFound.waldo = "line-through");
+    }
+    if (character === 'odlaw') {
+      setCharFound(charFound.odlaw = "line-through");
+    }
+    if (character === 'whitebeard') {
+      setCharFound(charFound.white = "line-through");
     }
   }
   
@@ -109,6 +140,7 @@ function App() {
       {clicked &&
         <FoundBox 
           coords={coords}
+          charFound={charFound}
           handleFinding={handleFinding}
         />
       }

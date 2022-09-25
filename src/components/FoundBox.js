@@ -1,28 +1,43 @@
 import React from 'react';
 
-const FoundBox = ({ coords, handleFinding }) => {
-    const style = {
-        left: coords.x,
-        top: coords.y
-    }
+const FoundBox = (props) => {
+    const placement = {
+        left: props.coords.x,
+        top: props.coords.y
+    };
+
+    const waldoText = {
+        textDecoration: props.charFound.waldo
+    };
+
+    const odlawText = {
+        textDecoration: props.charFound.odlaw
+    };
+
+    const whitebeardText = {
+        textDecoration: props.charFound.white
+    };
 
     return (
-        <div className='foundbox' style={style}>
+        <div className='foundbox' style={placement}>
             <p 
                 className='waldo'
-                onClick={(e) => handleFinding(e)}
+                style={waldoText}
+                onClick={(e) => props.handleFinding(e)}
             >
                 Waldo
             </p>
             <p 
                 className='odlaw'
-                onClick={(e) => handleFinding(e)}
+                style={odlawText}
+                onClick={(e) => props.handleFinding(e)}
             >
                 Odlaw
             </p>
             <p 
                 className='whitebeard'
-                onClick={(e) => handleFinding(e)}
+                style={whitebeardText}
+                onClick={(e) => props.handleFinding(e)}
             >
                 Whitebeard
             </p>
