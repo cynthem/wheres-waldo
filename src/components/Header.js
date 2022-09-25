@@ -8,7 +8,7 @@ const Header = (props) => {
             <div className='header-container'>
                 <div className='header-characters'>
                     <div className='char-container'>
-                        <img src={props.waldoSrc} alt="Waldo" />
+                        <img src={props.waldoFound.src} alt="Waldo" />
                         <img src={props.odlawSrc} alt="Odlaw" />
                         <img src={props.whiteSrc} alt="Whitebeard" />
                     </div>

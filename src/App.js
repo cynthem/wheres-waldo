@@ -21,6 +21,12 @@ function App() {
   const [charFound, setCharFound] = useState({ waldo: 'none', odlaw: 'none', white: 'none' });
   const [leaderOpen, setLeaderOpen] = useState(false);
   const timerRef = useRef(null);
+  const [waldoFound, setWaldoFound] = useState({
+    src: charList[0].unfoundSrc,
+    textDeco: 'none',
+    color: 'white',
+    cursor: 'pointer'
+  });
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -45,44 +51,44 @@ function App() {
     const yCoord = e.clientY - 100;
     setCoords({ x: xCoord, y: yCoord });
     setFinding(e.target.id);
+    handleFinding(e);
   }
 
   const handleFinding = (e) => {
     if (e.target.className.includes('waldo') && finding === 'waldo') {
-      setWaldoSrc(charList[0].foundSrc);
+      //setWaldoSrc(charList[0].foundSrc);
       setFoundCount(foundCount + 1);
-      handleCharFound('waldo');
+      setWaldoFound({
+        src: charList[0].foundSrc,
+        textDeco: 'line-through',
+        color: 'gray', 
+        cursor: 'default'
+      })
       if (foundCount === 3) {
         handleStopGame();
       }
     } else if (e.target.className.includes('odlaw') && finding === 'odlaw') {
       setOdlawSrc(charList[1].foundSrc);
       setFoundCount(foundCount + 1);
-      handleCharFound('odlaw');
+      setCharFound(prevcharFound => ({
+        ...prevcharFound,
+        odlaw: "line-through"
+      }));
       if (foundCount === 3) {
         handleStopGame();
       }
     } else if (e.target.className.includes('whitebeard') && finding === 'whitebeard') {
       setWhiteSrc(charList[2].foundSrc);
       setFoundCount(foundCount + 1);
-      handleCharFound('whitebeard');
+      setCharFound(prevcharFound => ({
+        ...prevcharFound,
+        white: "line-through"
+      }));
       if (foundCount === 3) {
         handleStopGame();
       }
     } else {
 
-    }
-  }
-
-  const handleCharFound = (character) => {
-    if (character === 'waldo') {
-      setCharFound(charFound.waldo = "line-through");
-    }
-    if (character === 'odlaw') {
-      setCharFound(charFound.odlaw = "line-through");
-    }
-    if (character === 'whitebeard') {
-      setCharFound(charFound.white = "line-through");
     }
   }
   
@@ -100,6 +106,7 @@ function App() {
         waldoSrc={waldoSrc}
         odlawSrc={odlawSrc}
         whiteSrc={whiteSrc}
+        waldoFound={waldoFound}
       />
       {leaderOpen &&
         <Leaderboard handleOpenLeader={handleOpenLeader} />
@@ -141,6 +148,7 @@ function App() {
         <FoundBox 
           coords={coords}
           charFound={charFound}
+          waldowFound={waldoFound}
           handleFinding={handleFinding}
         />
       }

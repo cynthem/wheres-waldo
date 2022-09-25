@@ -6,8 +6,10 @@ const FoundBox = (props) => {
         top: props.coords.y
     };
 
-    const waldoText = {
-        textDecoration: props.charFound.waldo
+    const waldoStyle = {
+        textDecoration: props.waldoFound.textDeco,
+        color: props.waldoFound.color,
+        cursor: props.waldoFound.cursor
     };
 
     const odlawText = {
@@ -22,7 +24,7 @@ const FoundBox = (props) => {
         <div className='foundbox' style={placement}>
             <p 
                 className='waldo'
-                style={waldoText}
+                style={waldoStyle}
                 onClick={(e) => props.handleFinding(e)}
             >
                 Waldo
