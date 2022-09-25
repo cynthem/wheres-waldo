@@ -3,6 +3,7 @@ import Header from './components/Header';
 import PreGame from './components/PreGame';
 import Leaderboard from './components/Leaderboard';
 import FoundBox from './components/FoundBox';
+import ResultsBox from './components/ResultsBox';
 import charList from './helpers/charList';
 import gameImage from './assets/wheresWaldo.jpg';
 import cursor from './assets/cursor.svg';
@@ -72,7 +73,7 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
-      window.setTimeout(setClicked(false), 1000);
+      window.setTimeout(() => setClicked(false), 1000);
       if (foundCount === 3) {
         handleStopGame();
       }
@@ -85,6 +86,7 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
+      window.setTimeout(() => setClicked(false), 1000);
       if (foundCount === 3) {
         handleStopGame();
       }
@@ -97,6 +99,7 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
+      window.setTimeout(() => setClicked(false), 1000);
       if (foundCount === 3) {
         handleStopGame();
       }
