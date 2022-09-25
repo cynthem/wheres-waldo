@@ -20,6 +20,7 @@ function App() {
   const [foundCount, setFoundCount] = useState(0);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [results, setResults] = useState({ top: "", bottom: "" });
+  const [win, setWin] = useState(false);
   const [waldoFound, setWaldoFound] = useState({
     src: charList[0].unfoundSrc,
     textDeco: 'none',
@@ -43,7 +44,7 @@ function App() {
     setGameStarted(true);
     setTimerStarted(true);
     timerRef.current = setInterval(() => {
-      setTime(time => time + 1)
+      setTime(time => time + 1);
     }, 1000);
     const gameImage = document.querySelector('.game-image');
     gameImage.style.cursor = `url(${cursor}) 50 50, auto`;
@@ -52,6 +53,8 @@ function App() {
   const handleStopGame = () => {
     setTimerStarted(false);
     clearInterval(timerRef.current);
+    setResultsOpen(false);
+    setWin(true);
     const gameImage = document.querySelector('.game-image');
     gameImage.style.cursor = 'default';
   }
@@ -83,7 +86,7 @@ function App() {
       setResultsOpen(true);
       window.setTimeout(() => {setClicked(false)}, 1000);
       if (foundCount === 3) {
-        handleStopGame();
+        window.setTimeout(() => handleStopGame(), 1500);
       }
     } else if (e.target.className.includes('odlaw') && finding === 'odlaw') {
       setFoundCount(prevfoundCount => prevfoundCount + 1);
@@ -196,6 +199,9 @@ function App() {
       }
       {resultsOpen &&
         <ResultsBox results={results} />
+      }
+      {win &&
+        <EndGame />
       }
     </div>
   );
