@@ -63,12 +63,11 @@ function App() {
     const yCoord = e.clientY - 100;
     setCoords({ x: xCoord, y: yCoord });
     setFinding(e.target.id);
-    handleFinding(e);
   }
 
   const handleFinding = (e) => {
     if (e.target.className.includes('waldo') && finding === 'waldo') {
-      setFoundCount(foundCount + 1);
+      setFoundCount(prevfoundCount => prevfoundCount + 1);
       setWaldoFound(prevwaldoFound => ({
         ...prevwaldoFound,
         src: charList[0].foundSrc,
@@ -87,7 +86,7 @@ function App() {
         handleStopGame();
       }
     } else if (e.target.className.includes('odlaw') && finding === 'odlaw') {
-      setFoundCount(foundCount + 1);
+      setFoundCount(prevfoundCount => prevfoundCount + 1);
       setOdlawFound(prevodlawFound => ({
         ...prevodlawFound,
         src: charList[1].foundSrc,
@@ -106,7 +105,7 @@ function App() {
         handleStopGame();
       }
     } else if (e.target.className.includes('whitebeard') && finding === 'whitebeard') {
-      setFoundCount(foundCount + 1);
+      setFoundCount(prevfoundCount => prevfoundCount + 1);
       setWhitebeardFound(prevwhitebeardFound => ({
         ...prevwhitebeardFound,
         src: charList[2].foundSrc,
@@ -131,6 +130,7 @@ function App() {
         bottom: "Better luck next time!"
       }));
       setResultsOpen(true);
+      setClicked(false);
     }
   }
   
