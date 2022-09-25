@@ -9,8 +9,8 @@ const Header = (props) => {
                 <div className='header-characters'>
                     <div className='char-container'>
                         <img src={props.waldoFound.src} alt="Waldo" />
-                        <img src={props.odlawSrc} alt="Odlaw" />
-                        <img src={props.whiteSrc} alt="Whitebeard" />
+                        <img src={props.odlawFound.src} alt="Odlaw" />
+                        <img src={props.whitebeardFound.src} alt="Whitebeard" />
                     </div>
                     {!props.gameStarted &&
                         <div className='header-timer'>00m:00s</div>
