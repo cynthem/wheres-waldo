@@ -12,12 +12,16 @@ const FoundBox = (props) => {
         cursor: props.waldoFound.cursor
     };
 
-    const odlawText = {
-        textDecoration: props.charFound.odlaw
+    const odlawStyle = {
+        textDecoration: props.odlawFound.textDeco,
+        color: props.odlawFound.color,
+        cursor: props.odlawFound.cursor
     };
 
-    const whitebeardText = {
-        textDecoration: props.charFound.white
+    const whitebeardStyle = {
+        textDecoration: props.whitebeardFound.textDeco,
+        color: props.whitebeardFound.color,
+        cursor: props.whitebeardFound.cursor
     };
 
     return (
@@ -31,14 +35,14 @@ const FoundBox = (props) => {
             </p>
             <p 
                 className='odlaw'
-                style={odlawText}
+                style={odlawStyle}
                 onClick={(e) => props.handleFinding(e)}
             >
                 Odlaw
             </p>
             <p 
                 className='whitebeard'
-                style={whitebeardText}
+                style={whitebeardStyle}
                 onClick={(e) => props.handleFinding(e)}
             >
                 Whitebeard

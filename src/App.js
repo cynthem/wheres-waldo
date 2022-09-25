@@ -23,7 +23,7 @@ function App() {
     color: 'white',
     cursor: 'pointer'
   });
-  const [odlowFound, setOdlowFound] = useState({
+  const [odlawFound, setOdlawFound] = useState({
     src: charList[1].unfoundSrc,
     textDeco: 'none',
     color: 'white',
@@ -77,8 +77,8 @@ function App() {
       }
     } else if (e.target.className.includes('odlaw') && finding === 'odlaw') {
       setFoundCount(foundCount + 1);
-      setOdlowFound(prevodlowFound => ({
-        ...prevodlowFound,
+      setOdlawFound(prevodlawFound => ({
+        ...prevodlawFound,
         src: charList[1].foundSrc,
         textDeco: "line-through",
         color: "gray", 
@@ -116,7 +116,7 @@ function App() {
         time={time}
         handleOpenLeader={handleOpenLeader}
         waldoFound={waldoFound}
-        odlowFound={odlowFound}
+        odlawFound={odlawFound}
         whitebeardFound={whitebeardFound}
       />
       {leaderOpen &&
@@ -159,7 +159,7 @@ function App() {
         <FoundBox 
           coords={coords}
           waldoFound={waldoFound}
-          odlowFound={odlowFound}
+          odlawFound={odlawFound}
           whitebeardFound={whitebeardFound}
           handleFinding={handleFinding}
         />
