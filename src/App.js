@@ -4,6 +4,7 @@ import PreGame from './components/PreGame';
 import Leaderboard from './components/Leaderboard';
 import FoundBox from './components/FoundBox';
 import ResultsBox from './components/ResultsBox';
+import EndGame from './components/EndGame';
 import charList from './helpers/charList';
 import gameImage from './assets/wheresWaldo.jpg';
 import cursor from './assets/cursor.svg';
