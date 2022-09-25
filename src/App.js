@@ -9,15 +9,17 @@ import gameImage from './assets/wheresWaldo.jpg';
 import cursor from './assets/cursor.svg';
 
 function App() {
+  const [leaderOpen, setLeaderOpen] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
   const [time, setTime] = useState(null);
+  const timerRef = useRef(null);
   const [clicked, setClicked] = useState(false);
   const [coords, setCoords] = useState({ x: null, y: null });
   const [finding, setFinding] = useState(null);
   const [foundCount, setFoundCount] = useState(0);
-  const [leaderOpen, setLeaderOpen] = useState(false);
-  const timerRef = useRef(null);
+  const [resultsOpen, setResultsOpen] = useState(false);
+  const [results, setResults] = useState("");
   const [waldoFound, setWaldoFound] = useState({
     src: charList[0].unfoundSrc,
     textDeco: 'none',
@@ -73,7 +75,8 @@ function App() {
         color: "gray", 
         cursor: "default"
       }));
-      window.setTimeout(() => setClicked(false), 1000);
+      setResultsOpen(true);
+      window.setTimeout(() => {setClicked(false)}, 1000);
       if (foundCount === 3) {
         handleStopGame();
       }
@@ -167,6 +170,9 @@ function App() {
           whitebeardFound={whitebeardFound}
           handleFinding={handleFinding}
         />
+      }
+      {resultsOpen &&
+        <ResultsBox />
       }
     </div>
   );

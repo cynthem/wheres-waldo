@@ -152,7 +152,7 @@ h2 {
 }
 
 
-/* FOUNDBOX */
+/* FOUNDBOX & RESULTSBOX */
 
 .foundbox {
   z-index: 2;
@@ -166,6 +166,18 @@ h2 {
 
 .foundbox > p {
   text-align: center;
+}
+
+.resultsbox {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  border-radius: 10px;
+  box-shadow: -3px 4px 3px rgb(0, 0, 0, 0.5);
+  color: white;
 }
 
 
