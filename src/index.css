@@ -170,14 +170,24 @@ h2 {
 
 .resultsbox {
   position: absolute;
-  top: 100px;
-  left: 100px;
+  top: 140px;
+  left: 620px;
   width: 200px;
-  height: 200px;
-  background-color: black;
+  height: 100px;
+  background-color: #ea2b1a;
   border-radius: 10px;
   box-shadow: -3px 4px 3px rgb(0, 0, 0, 0.5);
   color: white;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.text-top {
+  margin-bottom: 5px;
+}
+
+.text-bottom {
+  margin-top: 0px;
 }
 
 
