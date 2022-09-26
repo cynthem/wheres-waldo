@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { db } from './firebase';
 import Header from './components/Header';
 import PreGame from './components/PreGame';
 import Leaderboard from './components/Leaderboard';
@@ -31,6 +32,8 @@ function App() {
     cursor: 'pointer'
   };
 
+  const initialScores = [];
+
   const [gameStarted, setGameStarted] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
   const [time, setTime] = useState(null);
@@ -47,7 +50,7 @@ function App() {
   const [win, setWin] = useState(false);
   const [nameSubmitted, setNameSubmitted] = useState(false);
   const [playerName, setPlayerName] = useState(null);
-  const [highScores, setHighScores] = useState([]);
+  const [highScores, setHighScores] = useState(initialScores);
   const [leaderOpen, setLeaderOpen] = useState(false);
 
   const handleStartGame = () => {
@@ -171,12 +174,36 @@ function App() {
   }
 
   const saveData = () => {
+    db.collection("scores").add({
+      player: playerName,
+      timing: time
+    }).then(function (docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    }).catch(function (error) {
+      console.error("Error adding document: ", error);
+    });
+  }
 
+  const getData = () => {
+    let dbScores = [];
+    db.collection("scores")
+      .orderBy("time", "asc")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          dbScores.push(doc.data());
+        });
+      });
+    setHighScores(dbScores);
   }
   
   const handleOpenLeader = () => {
     setLeaderOpen(!leaderOpen);
   }
+
+  useEffect(() => {
+    getData();
+  });
 
   return (
     <div className="App">
@@ -188,6 +215,7 @@ function App() {
         waldoFound={waldoFound}
         odlawFound={odlawFound}
         whitebeardFound={whitebeardFound}
+        highScores={highScores}
       />
       {leaderOpen &&
         <Leaderboard handleOpenLeader={handleOpenLeader} />
@@ -245,6 +273,7 @@ function App() {
           handleFormSubmit={handleFormSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
+          highScores={highScores}
         />
       }
     </div>
