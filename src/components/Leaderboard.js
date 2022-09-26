@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Leaderboard = ({ handleOpenLeader }) => {
+const Leaderboard = ({ handleOpenLeader, highScores }) => {
     return (
         <div className='leaderboard'>
             <h2 className='leaderboard-title'>LEADERBOARD</h2>
@@ -15,9 +15,18 @@ const Leaderboard = ({ handleOpenLeader }) => {
                     <p>PLACE</p>
                     <p>NAME</p>
                     <p>TIME</p>
-                    <p>DATE</p>
                 </div>
-                <div className='leaderboard-results'>RESULTS</div>
+                <div className='leaderboard-results'>
+                    {highScores.map((score, index) => {
+                        return (
+                            <div className='leader-result'>
+                                <p className='leader-place'>{index + 1}</p>
+                                <p className='leader-name'>{score.player}</p>
+                                <p className='leader-time'>{score.timing}</p>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )
