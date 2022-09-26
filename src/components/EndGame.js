@@ -52,7 +52,7 @@ const EndGame = (props) => {
         <div className='endgame'>
             <p className='end-text'>{`You found all three in ${formatTime(props.time)}!`}</p>
             {!props.nameSubmitted &&
-                <EndForm />
+                <EndForm handleNameSubmitted={props.handleNameSubmitted} />
             }
             {props.nameSubmitted &&
                 <EndMessage />
