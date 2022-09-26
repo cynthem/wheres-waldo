@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EndForm = ({ handleNameSubmitted, handleFormSubmit }) => {
+const EndForm = ({ handleFormSubmit }) => {
     return (
         <form className='end-form' onSubmit={handleFormSubmit}>
             <input 
