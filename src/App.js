@@ -46,6 +46,7 @@ function App() {
   const [results, setResults] = useState({ top: "", bottom: "" });
   const [win, setWin] = useState(false);
   const [nameSubmitted, setNameSubmitted] = useState(false);
+  const [playerName, setPlayerName] = useState(null);
   const [leaderOpen, setLeaderOpen] = useState(false);
 
   const handleStartGame = () => {
@@ -161,7 +162,9 @@ function App() {
     }
   }
 
-  const handleNameSubmitted = () => {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setPlayerName(e.target.value);
     setNameSubmitted(true);
   }
   
@@ -232,7 +235,7 @@ function App() {
         <EndGame 
           time={time}
           nameSubmitted={nameSubmitted}
-          handleNameSubmitted={handleNameSubmitted}
+          handleFormSubmit={handleFormSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
         />
