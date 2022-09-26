@@ -47,6 +47,7 @@ function App() {
   const [win, setWin] = useState(false);
   const [nameSubmitted, setNameSubmitted] = useState(false);
   const [playerName, setPlayerName] = useState(null);
+  const [highScores, setHighScores] = useState([]);
   const [leaderOpen, setLeaderOpen] = useState(false);
 
   const handleStartGame = () => {
@@ -65,6 +66,7 @@ function App() {
     setWin(true);
     const gameImage = document.querySelector('.game-image');
     gameImage.style.cursor = 'default';
+    saveData();
   }
 
   const handleResetGame = () => {
@@ -166,6 +168,10 @@ function App() {
     e.preventDefault();
     setPlayerName(e.target.value);
     setNameSubmitted(true);
+  }
+
+  const saveData = () => {
+
   }
   
   const handleOpenLeader = () => {
