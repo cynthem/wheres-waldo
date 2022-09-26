@@ -49,6 +49,14 @@ const EndGame = ({ time }) => {
     return (
         <div className='endgame'>
             <p className='end-text'>{`You found all three in ${formatTime(time)}!`}</p>
+            <form className='end-form'>
+                <input className="end-input" type="text" placeholder="Enter your name" required />
+                <input className='end-submit' type="submit" value="Submit" />
+            </form>
+            <div className='end-btns'>
+                <button className='end-leader-btn'>View Leaderboard</button>
+                <button className='end-restart-btn'>Play Again</button>
+            </div>
         </div>
     )
 }
