@@ -215,10 +215,12 @@ function App() {
         waldoFound={waldoFound}
         odlawFound={odlawFound}
         whitebeardFound={whitebeardFound}
-        highScores={highScores}
       />
       {leaderOpen &&
-        <Leaderboard handleOpenLeader={handleOpenLeader} />
+        <Leaderboard 
+          handleOpenLeader={handleOpenLeader}
+          highScores={highScores} 
+        />
       }
       {!gameStarted &&
         <PreGame handleStartGame={handleStartGame} />
@@ -273,7 +275,6 @@ function App() {
           handleFormSubmit={handleFormSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
-          highScores={highScores}
         />
       }
     </div>
