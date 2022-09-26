@@ -115,9 +115,10 @@ body {
 }
 
 
-/* PRE-GAME */
+/* PREGAME & ENDGAME */
 
-.pre-game {
+.pre-game,
+.endgame {
   height: 831px;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.6);
