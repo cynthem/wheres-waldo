@@ -38,7 +38,7 @@ function App() {
   const [clicked, setClicked] = useState(false);
   const [coords, setCoords] = useState({ x: null, y: null });
   const [finding, setFinding] = useState(null);
-  const [foundCount, setFoundCount] = useState(0);
+  const [foundCount, setFoundCount] = useState(1);
   const [waldoFound, setWaldoFound] = useState(intialWaldo);
   const [odlawFound, setOdlawFound] = useState(initialOdlaw);
   const [whitebeardFound, setWhitebeardFound] = useState(initialWhitebeard);
@@ -59,7 +59,6 @@ function App() {
 
   const handleStopGame = () => {
     clearInterval(timerRef.current);
-    setTimerStarted(false);
     setResultsOpen(false);
     setWin(true);
     const gameImage = document.querySelector('.game-image');
@@ -67,8 +66,9 @@ function App() {
   }
 
   const handleResetGame = () => {
+    setTimerStarted(false);
     setTime(null);
-    setFoundCount(0);
+    setFoundCount(1);
     setWaldoFound(intialWaldo);
     setOdlawFound(initialOdlaw);
     setWhitebeardFound(initialWhitebeard);
@@ -101,10 +101,12 @@ function App() {
         bottom: "Waldo!"
       }));
       setResultsOpen(true);
-      window.setTimeout(() => {setClicked(false)}, 1000);
-      if (foundCount === 3) {
-        window.setTimeout(() => handleStopGame(), 1500);
-      }
+      window.setTimeout(() => {
+        setClicked(false);
+        if (foundCount === 3) {
+          handleStopGame();
+        }
+      }, 1000);
     } else if (e.target.className.includes('odlaw') && finding === 'odlaw') {
       setFoundCount(prevfoundCount => prevfoundCount + 1);
       setOdlawFound(prevodlawFound => ({
@@ -120,10 +122,12 @@ function App() {
         bottom: "Odlaw!"
       }));
       setResultsOpen(true);
-      window.setTimeout(() => setClicked(false), 1000);
-      if (foundCount === 3) {
-        handleStopGame();
-      }
+      window.setTimeout(() => {
+        setClicked(false);
+        if (foundCount === 3) {
+          handleStopGame();
+        }
+      }, 1000);
     } else if (e.target.className.includes('whitebeard') && finding === 'whitebeard') {
       setFoundCount(prevfoundCount => prevfoundCount + 1);
       setWhitebeardFound(prevwhitebeardFound => ({
@@ -139,10 +143,12 @@ function App() {
         bottom: "Whitebeard!"
       }));
       setResultsOpen(true);
-      window.setTimeout(() => setClicked(false), 1000);
-      if (foundCount === 3) {
-        handleStopGame();
-      }
+      window.setTimeout(() => {
+        setClicked(false);
+        if (foundCount === 3) {
+          handleStopGame();
+        }
+      }, 1000);
     } else {
       setResults(prevresults => ({
         ...prevresults,
