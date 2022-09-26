@@ -1,4 +1,6 @@
 import React from 'react';
+import EndForm from './EndForm';
+import EndMessage from './EndMessage';
 
 const EndGame = ({ time }) => {
     const formatTime = (time) => {
@@ -49,7 +51,7 @@ const EndGame = ({ time }) => {
     return (
         <div className='endgame'>
             <p className='end-text'>{`You found all three in ${formatTime(time)}!`}</p>
-            
+            <EndForm />
             <div className='end-btns'>
                 <button className='end-leader-btn'>View Leaderboard</button>
                 <button className='end-restart-btn'>Play Again</button>
