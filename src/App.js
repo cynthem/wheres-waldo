@@ -52,7 +52,7 @@ function App() {
   const [playerName, setPlayerName] = useState(null);
   const [highScores, setHighScores] = useState(initialScores);
   const [leaderOpen, setLeaderOpen] = useState(false);
-
+  
   const handleStartGame = () => {
     setGameStarted(true);
     setTimerStarted(true);
@@ -69,17 +69,18 @@ function App() {
     setWin(true);
     const gameImage = document.querySelector('.game-image');
     gameImage.style.cursor = 'default';
-    saveData();
   }
 
   const handleResetGame = () => {
-    setTimerStarted(false);
+    //setTimerStarted(false);
     setTime(null);
     setFoundCount(1);
     setWaldoFound(intialWaldo);
     setOdlawFound(initialOdlaw);
     setWhitebeardFound(initialWhitebeard);
     setWin(false);
+    setNameSubmitted(false);
+    setPlayerName(null);
     handleStartGame();
   }
 
@@ -167,12 +168,6 @@ function App() {
     }
   }
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setPlayerName(e.target.value);
-    setNameSubmitted(true);
-  }
-
   const saveData = () => {
     db.collection("scores").add({
       player: playerName,
@@ -182,6 +177,17 @@ function App() {
     }).catch(function (error) {
       console.error("Error adding document: ", error);
     });
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setPlayerName(e.target.value);
+    setNameSubmitted(true);
+    saveData();
+  }
+
+  const handleOpenLeader = () => {
+    setLeaderOpen(!leaderOpen);
   }
 
   const getData = () => {
@@ -195,10 +201,6 @@ function App() {
         });
       });
     setHighScores(dbScores);
-  }
-  
-  const handleOpenLeader = () => {
-    setLeaderOpen(!leaderOpen);
   }
 
   useEffect(() => {

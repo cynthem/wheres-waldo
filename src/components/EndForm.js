@@ -2,7 +2,7 @@ import React from 'react';
 
 const EndForm = ({ handleFormSubmit }) => {
     return (
-        <form className='end-form' onSubmit={handleFormSubmit}>
+        <form className='end-form' onSubmit={() => handleFormSubmit()}>
             <input 
                 className="end-input" 
                 type="text" 
