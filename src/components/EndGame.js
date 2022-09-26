@@ -51,7 +51,12 @@ const EndGame = (props) => {
     return (
         <div className='endgame'>
             <p className='end-text'>{`You found all three in ${formatTime(props.time)}!`}</p>
-            <EndForm />
+            {!props.nameSubmitted &&
+                <EndForm />
+            }
+            {props.nameSubmitted &&
+                <EndMessage />
+            }
             <div className='end-btns'>
                 <button 
                     className='end-leader-btn'
@@ -59,7 +64,12 @@ const EndGame = (props) => {
                 >
                     View Leaderboard
                 </button>
-                <button className='end-restart-btn'>Play Again</button>
+                <button 
+                    className='end-restart-btn'
+                    onClick={() => props.handleResetGame()}
+                >
+                    Play Again
+                </button>
             </div>
         </div>
     )
