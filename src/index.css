@@ -148,13 +148,60 @@ h2 {
   cursor: pointer;
 }
 
-.start-btn:active {
+.start-btn:active,
+.end-submit:active,
+.end-leader-btn:active,
+.end-restart-btn:active {
   box-shadow: inset 3px 4px 4px rgb(0, 0, 0, 0.5);
 }
 
 .end-text {
   font-size: 1.75rem;
   margin-top: 80px;
+}
+
+.end-form,
+.end-btns {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.end-form {
+  margin-bottom: 80px;
+}
+
+.end-input {
+  width: 220px;
+  padding-left: 10px;
+  border: 1px solid white;
+  outline: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.end-submit,
+.end-leader-btn,
+.end-restart-btn {
+  font-family: 'Acme', sans-serif;
+  font-size: 1.25rem;
+  background-color: #ea2b1a;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px 18px 8px;
+  border-radius: 8px;
+  box-shadow: -3px 4px 3px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.end-submit {
+  width: 100px;
+}
+
+.end-restart-btn {
+  background-color: #5ed05f;
+  color: black;
 }
 
 
