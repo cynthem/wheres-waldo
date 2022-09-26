@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EndMessage = () => {
+const EndMessage = ({ playerName }) => {
     return (
         <div className='end-message'>
 

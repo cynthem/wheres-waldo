@@ -55,7 +55,7 @@ const EndGame = (props) => {
                 <EndForm handleFormSubmit={props.handleFormSubmit} />
             }
             {props.nameSubmitted &&
-                <EndMessage />
+                <EndMessage playerName={props.playerName} />
             }
             <div className='end-btns'>
                 <button 
