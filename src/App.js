@@ -235,6 +235,7 @@ function App() {
         <EndGame 
           time={time}
           nameSubmitted={nameSubmitted}
+          playerName={playerName}
           handleFormSubmit={handleFormSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
