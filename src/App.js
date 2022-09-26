@@ -10,7 +10,27 @@ import gameImage from './assets/wheresWaldo.jpg';
 import cursor from './assets/cursor.svg';
 
 function App() {
-  const [leaderOpen, setLeaderOpen] = useState(false);
+  const intialWaldo = {
+    src: charList[0].unfoundSrc,
+    textDeco: 'none',
+    color: 'white',
+    cursor: 'pointer'
+  };
+
+  const initialOdlaw = {
+    src: charList[1].unfoundSrc,
+    textDeco: 'none',
+    color: 'white',
+    cursor: 'pointer'
+  };
+
+  const initialWhitebeard = {
+    src: charList[2].unfoundSrc,
+    textDeco: 'none',
+    color: 'white',
+    cursor: 'pointer'
+  };
+
   const [gameStarted, setGameStarted] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
   const [time, setTime] = useState(null);
@@ -19,27 +39,13 @@ function App() {
   const [coords, setCoords] = useState({ x: null, y: null });
   const [finding, setFinding] = useState(null);
   const [foundCount, setFoundCount] = useState(0);
+  const [waldoFound, setWaldoFound] = useState(intialWaldo);
+  const [odlawFound, setOdlawFound] = useState(initialOdlaw);
+  const [whitebeardFound, setWhitebeardFound] = useState(initialWhitebeard);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [results, setResults] = useState({ top: "", bottom: "" });
   const [win, setWin] = useState(false);
-  const [waldoFound, setWaldoFound] = useState({
-    src: charList[0].unfoundSrc,
-    textDeco: 'none',
-    color: 'white',
-    cursor: 'pointer'
-  });
-  const [odlawFound, setOdlawFound] = useState({
-    src: charList[1].unfoundSrc,
-    textDeco: 'none',
-    color: 'white',
-    cursor: 'pointer'
-  });
-  const [whitebeardFound, setWhitebeardFound] = useState({
-    src: charList[2].unfoundSrc,
-    textDeco: 'none',
-    color: 'white',
-    cursor: 'pointer'
-  });
+  const [leaderOpen, setLeaderOpen] = useState(false);
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -52,12 +58,22 @@ function App() {
   }
 
   const handleStopGame = () => {
-    setTimerStarted(false);
     clearInterval(timerRef.current);
+    setTimerStarted(false);
     setResultsOpen(false);
     setWin(true);
     const gameImage = document.querySelector('.game-image');
     gameImage.style.cursor = 'default';
+  }
+
+  const handleResetGame = () => {
+    setTime(null);
+    setFoundCount(0);
+    setWaldoFound(intialWaldo);
+    setOdlawFound(initialOdlaw);
+    setWhitebeardFound(initialWhitebeard);
+    setWin(false);
+    handleStartGame();
   }
 
   const handleClicked = (e) => {
@@ -202,7 +218,7 @@ function App() {
         <ResultsBox results={results} />
       }
       {win &&
-        <EndGame />
+        <EndGame time={time} />
       }
     </div>
   );

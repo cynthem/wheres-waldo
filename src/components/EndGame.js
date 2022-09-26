@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EndGame = () => {
+const EndGame = ({ time }) => {
     return (
         <div className='endgame'>
             endyend
