@@ -2,10 +2,10 @@ import React from 'react';
 import EndForm from './EndForm';
 import EndMessage from './EndMessage';
 
-const EndGame = ({ time }) => {
+const EndGame = (props) => {
     const formatTime = (time) => {
-        const seconds = `0${(time % 60)}`.slice(-2);
-        const findMin = `${Math.floor(time / 60)}`;
+        const seconds = `0${(props.time % 60)}`.slice(-2);
+        const findMin = `${Math.floor(props.time / 60)}`;
         const minutes = `0${(findMin)}`.slice(-2);
         const minute = minutes[1];
         const second = seconds[1];
@@ -50,10 +50,15 @@ const EndGame = ({ time }) => {
 
     return (
         <div className='endgame'>
-            <p className='end-text'>{`You found all three in ${formatTime(time)}!`}</p>
+            <p className='end-text'>{`You found all three in ${formatTime(props.time)}!`}</p>
             <EndForm />
             <div className='end-btns'>
-                <button className='end-leader-btn'>View Leaderboard</button>
+                <button 
+                    className='end-leader-btn'
+                    onClick={() => props.handleOpenLeader()}
+                >
+                    View Leaderboard
+                </button>
                 <button className='end-restart-btn'>Play Again</button>
             </div>
         </div>

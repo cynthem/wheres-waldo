@@ -224,7 +224,11 @@ function App() {
         <ResultsBox results={results} />
       }
       {win &&
-        <EndGame time={time} />
+        <EndGame 
+          time={time}
+          handleOpenLeader={handleOpenLeader} 
+          handleResetGame={handleResetGame}
+        />
       }
     </div>
   );
