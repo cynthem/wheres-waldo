@@ -182,10 +182,8 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const input = document.querySelector('.end-input');
-    console.log(input.value)
     setPlayerName(input.value);
     setNameSubmitted(true);
-    saveData();
   }
 
   const handleOpenLeader = () => {
@@ -202,6 +200,7 @@ function App() {
           dbScores.push(doc.data());
         });
       });
+    console.log(dbScores)
     setHighScores(dbScores);
   }
 
@@ -277,6 +276,7 @@ function App() {
           nameSubmitted={nameSubmitted}
           playerName={playerName}
           handleFormSubmit={handleFormSubmit}
+          saveData={saveData}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
         />
