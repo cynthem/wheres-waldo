@@ -192,9 +192,9 @@ function App() {
 
   const getData = () => {
     let dbScores = [];
-    console.log(db.collection("scores"))
     db.collection("scores")
-      .orderBy("time", "asc")
+      .orderBy("timing", "asc")
+      .limit(20)
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
