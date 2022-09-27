@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EndForm = ({ handleDataSubmit }) => {
+const EndForm = ({ handleDataSubmit, handleFormSubmit }) => {
     return (
         <form className='end-form'>
             <input 
@@ -15,7 +15,7 @@ const EndForm = ({ handleDataSubmit }) => {
                 className='end-submit' 
                 type="submit" 
                 value="Submit" 
-                onClick={}
+                onClick={() => handleFormSubmit()}
             />
         </form>
     )

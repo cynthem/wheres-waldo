@@ -179,10 +179,8 @@ function App() {
     });
   }
 
-  const handleFormSubmit = (e) => {
-    
+  const handleFormSubmit = () => {
     setNameSubmitted(true);
-    
   }
 
   const handleDataSubmit =(e) => {
@@ -278,6 +276,7 @@ function App() {
           time={time}
           nameSubmitted={nameSubmitted}
           playerName={playerName}
+          handleFormSubmit={handleFormSubmit}
           handleNameSubmit={handleDataSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
