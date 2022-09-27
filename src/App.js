@@ -183,6 +183,7 @@ function App() {
     e.preventDefault();
     const input = document.querySelector('.end-input');
     setPlayerName(input.value);
+    console.log(time)
     setNameSubmitted(true);
   }
 

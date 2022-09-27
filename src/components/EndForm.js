@@ -7,7 +7,7 @@ const EndForm = ({ handleFormSubmit }) => {
                 className="end-input" 
                 type="text" 
                 placeholder="Enter name into leaderboard" 
-                maxLength=""
+                maxLength="15"
                 required 
             />
             <input 
