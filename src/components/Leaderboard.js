@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqid from 'uniqid';
 
 const Leaderboard = ({ handleOpenLeader, highScores }) => {
     return (
@@ -18,7 +19,7 @@ const Leaderboard = ({ handleOpenLeader, highScores }) => {
                 </div>
                 <div className='leaderboard-results'>
                     {highScores.map((score, index) => 
-                        <div className='leader-result'>
+                        <div className='leader-result' key={uniqid()}>
                             <p className='leader-place'>{index + 1}</p>
                             <p className='leader-name'>{score.player}</p>
                             <p className='leader-time'>{score.timing}</p>
