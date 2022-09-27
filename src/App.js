@@ -277,7 +277,7 @@ function App() {
           nameSubmitted={nameSubmitted}
           playerName={playerName}
           handleFormSubmit={handleFormSubmit}
-          handleNameSubmit={handleDataSubmit}
+          handleDataSubmit={handleDataSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
         />
