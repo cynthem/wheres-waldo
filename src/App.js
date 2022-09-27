@@ -72,7 +72,6 @@ function App() {
   }
 
   const handleResetGame = () => {
-    //setTimerStarted(false);
     setTime(null);
     setFoundCount(1);
     setWaldoFound(intialWaldo);
