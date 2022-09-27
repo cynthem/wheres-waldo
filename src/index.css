@@ -256,7 +256,7 @@ h2 {
   position: absolute;
   z-index: 3;
   top: 150px;
-  left: 445px;
+  left: 470px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -277,7 +277,7 @@ h2 {
 
 .leaderboard-container {
   background-color: #ea2b1a;
-  width: 550px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -324,4 +324,15 @@ h2 {
 
 .leader-result {
   display: flex;
+}
+
+.player-place {
+  width: 45px;
+  text-align: center;
+}
+
+.player-name {
+  width: 200px;
+  margin-left: 85px;
+  margin-right: 50px;
 }
