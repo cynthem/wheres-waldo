@@ -20,6 +20,7 @@ body {
   overscroll-behavior-x: none;
   background-color: black;
   font-family: 'Acme', sans-serif;
+  position: relative;
 }
 
 .App {
@@ -27,7 +28,9 @@ body {
   width: 1440px;
   display: grid;
   grid-template-rows: 100px auto;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: calc(50vw - 720px);
 }
 
 .game-image {
