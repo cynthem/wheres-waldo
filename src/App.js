@@ -183,7 +183,7 @@ function App() {
     setNameSubmitted(true);
   }
 
-  const handleDataSubmit =(e) => {
+  const handleDataSubmit = (e) => {
     setPlayerName(e.target.value);
     saveData();
   }
