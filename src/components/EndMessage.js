@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const EndMessage = ({ saveData, playerName }) => {
     useEffect(() => {
         saveData();
-    }, []);
+    }, [saveData]);
 
     return (
         <div className='end-message'>
