@@ -173,7 +173,6 @@ function App() {
     const input = document.querySelector('.end-input');
     setPlayerName(input.value);
     setNameSubmitted(true);
-    saveData();
   }
 
   const handleOpenLeader = () => {
@@ -204,6 +203,18 @@ function App() {
       });
     setHighScores(dbScores);
   }
+
+  useEffect(() => {
+    if (playerName) {
+      saveData();
+    }
+  }, [playerName]);
+
+  useEffect(() => {
+    if (playerName) {
+      getData();
+    }
+  }, [playerName]);
 
   useEffect(() => {
     getData();
