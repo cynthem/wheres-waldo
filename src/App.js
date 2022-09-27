@@ -180,9 +180,13 @@ function App() {
   }
 
   const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setPlayerName(e.target.value);
+    
     setNameSubmitted(true);
+    
+  }
+
+  const handleDataSubmit =(e) => {
+    setPlayerName(e.target.value);
     saveData();
   }
 
@@ -274,7 +278,7 @@ function App() {
           time={time}
           nameSubmitted={nameSubmitted}
           playerName={playerName}
-          handleFormSubmit={handleFormSubmit}
+          handleNameSubmit={handleDataSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
         />
