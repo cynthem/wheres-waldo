@@ -192,6 +192,7 @@ function App() {
 
   const getData = () => {
     let dbScores = [];
+    console.log(db.collection("scores"))
     db.collection("scores")
       .orderBy("time", "asc")
       .get()
