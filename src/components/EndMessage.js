@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-const EndMessage = ({ playerName }) => {
+const EndMessage = ({ saveData, playerName }) => {
     useEffect(() => {
-        
+        saveData();
     }, []);
 
     return (
