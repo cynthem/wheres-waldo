@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/wheres-waldo/static/css/main.e1012650.css",
+    "main.js": "/wheres-waldo/static/js/main.1860bef6.js",
+    "static/media/wheresWaldo.jpg": "/wheres-waldo/static/media/wheresWaldo.8e986c492c5312cd259e.jpg",
+    "static/media/title.png": "/wheres-waldo/static/media/title.42f77b229772306e4c12.png",
+    "static/media/whitebeard.png": "/wheres-waldo/static/media/whitebeard.b8274e1d52b20f54dc75.png",
+    "static/media/acme-v18-latin-regular.svg": "/wheres-waldo/static/media/acme-v18-latin-regular.3a36e34e0d3a0fe02689.svg",
+    "static/media/acme-v18-latin-regular.ttf": "/wheres-waldo/static/media/acme-v18-latin-regular.9685cb71c126b6b950e6.ttf",
+    "static/media/acme-v18-latin-regular.woff": "/wheres-waldo/static/media/acme-v18-latin-regular.ddcdac18010e7b4ddb8a.woff",
+    "static/media/odlaw.png": "/wheres-waldo/static/media/odlaw.04244283f4a6782034c6.png",
+    "static/media/acme-v18-latin-regular.eot": "/wheres-waldo/static/media/acme-v18-latin-regular.8abc7d375e24b6fe8cac.eot",
+    "static/media/acme-v18-latin-regular.woff2": "/wheres-waldo/static/media/acme-v18-latin-regular.b70d482f87d1a519cdd1.woff2",
+    "index.html": "/wheres-waldo/index.html",
+    "static/media/cursor.svg": "/wheres-waldo/static/media/cursor.a1125529a9825ee93790f60fbe5df3f2.svg",
+    "main.e1012650.css.map": "/wheres-waldo/static/css/main.e1012650.css.map",
+    "main.1860bef6.js.map": "/wheres-waldo/static/js/main.1860bef6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e1012650.css",
+    "static/js/main.1860bef6.js"
+  ]
+}
