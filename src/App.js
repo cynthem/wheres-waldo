@@ -179,12 +179,10 @@ function App() {
     });
   }
 
-  const handleFormSubmit = () => {
-    setNameSubmitted(true);
-  }
-
-  const handleDataSubmit = (e) => {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
     setPlayerName(e.target.value);
+    setNameSubmitted(true);
     saveData();
   }
 
@@ -277,7 +275,6 @@ function App() {
           nameSubmitted={nameSubmitted}
           playerName={playerName}
           handleFormSubmit={handleFormSubmit}
-          handleDataSubmit={handleDataSubmit}
           handleOpenLeader={handleOpenLeader} 
           handleResetGame={handleResetGame}
         />
