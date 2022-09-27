@@ -182,6 +182,7 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const input = document.querySelector('.end-input');
+    console.log(input.value)
     setPlayerName(input.value);
     setNameSubmitted(true);
     saveData();

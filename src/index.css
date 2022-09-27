@@ -204,6 +204,12 @@ h2 {
   color: black;
 }
 
+.end-msg-text {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
 
 /* FOUNDBOX & RESULTSBOX */
 
