@@ -27,9 +27,9 @@ const Leaderboard = ({ handleOpenLeader, highScores }) => {
                 <div className='leaderboard-results'>
                     {highScores.map((score, index) => 
                         <div className='leader-result' key={uniqid()}>
-                            <p className='leader-place'>{index + 1}</p>
-                            <p className='leader-name'>{score.player}</p>
-                            <p className='leader-time'>{formatTimes(score.timing)}</p>
+                            <p className='player-place'>{index + 1}</p>
+                            <p className='player-name'>{score.player}</p>
+                            <p className='player-time'>{formatTimes(score.timing)}</p>
                         </div>
                     )}
                 </div>

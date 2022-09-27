@@ -256,7 +256,7 @@ h2 {
   position: absolute;
   z-index: 3;
   top: 150px;
-  left: 420px;
+  left: 445px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -277,7 +277,7 @@ h2 {
 
 .leaderboard-container {
   background-color: #ea2b1a;
-  width: 600px;
+  width: 550px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -305,7 +305,14 @@ h2 {
 
 .leaderboard-heading > p {
   margin-bottom: 0;
-  margin-right: 50px;
+}
+
+.leader-place {
+  margin-right: 80px;
+}
+
+.leader-name {
+  margin-right: 200px;
 }
 
 .leaderboard-results {
@@ -313,4 +320,8 @@ h2 {
   overflow-x: scroll;
   margin: 0 20px;
   border-top: 1px solid white;
+}
+
+.leader-result {
+  display: flex;
 }
