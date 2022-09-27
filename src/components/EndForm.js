@@ -1,21 +1,19 @@
 import React from 'react';
 
-const EndForm = ({ handleDataSubmit, handleFormSubmit }) => {
+const EndForm = ({ handleFormSubmit }) => {
     return (
-        <form className='end-form'>
+        <form className='end-form' onSubmit={(e) => handleFormSubmit(e)}>
             <input 
                 className="end-input" 
                 type="text" 
                 placeholder="Enter name into leaderboard" 
                 maxLength=""
                 required 
-                onChange={(e) => handleDataSubmit(e)}
             />
             <input 
                 className='end-submit' 
                 type="submit" 
                 value="Submit" 
-                onClick={() => handleFormSubmit()}
             />
         </form>
     )
