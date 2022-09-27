@@ -200,7 +200,6 @@ function App() {
           dbScores.push(doc.data());
         });
       });
-    console.log(dbScores)
     setHighScores(dbScores);
   }
 

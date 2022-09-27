@@ -17,15 +17,13 @@ const Leaderboard = ({ handleOpenLeader, highScores }) => {
                     <p>TIME</p>
                 </div>
                 <div className='leaderboard-results'>
-                    {highScores.map((score, index) => {
-                        return (
-                            <div className='leader-result'>
-                                <p className='leader-place'>{index + 1}</p>
-                                <p className='leader-name'>{score.player}</p>
-                                <p className='leader-time'>{score.timing}</p>
-                            </div>
-                        )
-                    })}
+                    {highScores.map((score, index) => 
+                        <div className='leader-result'>
+                            <p className='leader-place'>{index + 1}</p>
+                            <p className='leader-name'>{score.player}</p>
+                            <p className='leader-time'>{score.timing}</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
