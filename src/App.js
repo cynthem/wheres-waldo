@@ -168,6 +168,17 @@ function App() {
     }
   }
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const input = document.querySelector('.end-input');
+    setPlayerName(input.value);
+    setNameSubmitted(true);
+  }
+
+  const handleOpenLeader = () => {
+    setLeaderOpen(!leaderOpen);
+  }
+
   const saveData = () => {
     db.collection("scores").add({
       player: playerName,
@@ -177,18 +188,6 @@ function App() {
     }).catch(function (error) {
       console.error("Error adding document: ", error);
     });
-  }
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const input = document.querySelector('.end-input');
-    setPlayerName(input.value);
-    console.log(time)
-    setNameSubmitted(true);
-  }
-
-  const handleOpenLeader = () => {
-    setLeaderOpen(!leaderOpen);
   }
 
   const getData = () => {
