@@ -6,7 +6,7 @@ const Leaderboard = ({ handleOpenLeader, highScores }) => {
         const seconds = `0${(timing % 60)}`.slice(-2);
         const findMin = `${Math.floor(timing / 60)}`;
         const minutes = `0${(findMin)}`.slice(-2);
-        return `${minutes}m:${seconds}s`;
+        return `${minutes}:${seconds}`;
     }
 
     return (
@@ -20,9 +20,9 @@ const Leaderboard = ({ handleOpenLeader, highScores }) => {
                     X
                 </button>
                 <div className='leaderboard-heading'>
-                    <p>PLACE</p>
-                    <p>NAME</p>
-                    <p>TIME</p>
+                    <p className='leader-place'>PLACE</p>
+                    <p className='leader-name'>NAME</p>
+                    <p className='leader-time'>TIME</p>
                 </div>
                 <div className='leaderboard-results'>
                     {highScores.map((score, index) => 
