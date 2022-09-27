@@ -173,6 +173,7 @@ function App() {
     const input = document.querySelector('.end-input');
     setPlayerName(input.value);
     setNameSubmitted(true);
+    saveData();
   }
 
   const handleOpenLeader = () => {
