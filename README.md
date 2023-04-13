@@ -1,7 +1,7 @@
 # Where's Waldo?
 > A React app version of "Where's Waldo?" (aka "Where's Wally?") that uses Firebase's Firestore to store and display player scores. This project was completed as part of The Odin Project's Full Stack Javascript curriculum.
 
-Live demo [_here_](https://doozles411.github.io/wheres-waldo/)
+Live demo [_here_](https://cynthem.github.io/wheres-waldo/)
 
 
 ## Room for Improvement
